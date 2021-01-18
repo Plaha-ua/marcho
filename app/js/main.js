@@ -1,4 +1,4 @@
-"use strict";
+// "use strict";
 $(function () {
 
   $('.menu__btn').on('click', function(){
@@ -10,6 +10,10 @@ $(function () {
     $(this).toggleClass('active');
   });
 
+   $(".shop__filter-btn").on('click', function(){
+    $(".shop__filters").slideToggle();
+    
+   });
 
 
 
@@ -36,6 +40,7 @@ $(function () {
     $($(this).attr('href')).addClass('product-tabs__content-item--active');
 
   });
+
   $(".product-slide__thumb").slick({
     asNavFor: ".product-slide__big",
     focusOnSelect: true,
@@ -50,6 +55,14 @@ $(function () {
     draggable: false,
     arrows: false,
     fade: true,
+    responsive: [
+      {
+        breakpoint: 1051,
+        settings: {
+          draggable: true,
+        }
+      },
+    ]
   });
 
   $(".shop-content__filter-btn").on("click", function () {
@@ -61,9 +74,12 @@ $(function () {
 
   $(".button-list").on("click", function () {
     $(".product-item").addClass("product-item--list");
+    $(".shop-content__inner").addClass("shop-content__nogrid");
+
   });
   $(".button-grid").on("click", function () {
     $(".product-item").removeClass("product-item--list");
+     $(".shop-content__inner").removeClass("shop-content__nogrid");
   });
 
   $(".select-style, .product-one__item-num").styler();
